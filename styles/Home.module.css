@@ -1,168 +1,387 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+.container {
+  min-height: 100vh;
+  padding: 0 2rem;
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  color: #212529;
 }
 
 .main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
+.title {
   margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+  line-height: 1.2;
+  font-size: 3.5rem;
+  text-align: center;
+  color: #212529;
+  margin-bottom: 1rem;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.highlight {
+  color: #5f3dc4;
+  font-weight: 700;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+.description {
+  margin: 1.5rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #495057;
+  max-width: 800px;
 }
 
-.ctas {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 3rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  height: 100%;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #212529;
+}
+
+.languageIcon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  color: #5f3dc4;
+}
+
+.card p {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #495057;
+}
+
+.features {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.features li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 1rem;
+  color: #495057;
+}
+
+.features li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #5f3dc4;
+  font-weight: bold;
+}
+
+.button {
+  display: inline-block;
+  background: #5f3dc4;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
   font-weight: 500;
+  text-align: center;
+  transition: background 0.3s ease;
+  margin-top: auto;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.button:hover {
+  background: #4c2f9d;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
+.cta {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 800px;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  color: #212529;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  color: #495057;
+  margin-bottom: 2rem;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.primaryButton {
+  display: inline-block;
+  background: #5f3dc4;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.primaryButton:hover {
+  background: #4c2f9d;
+}
+
+.secondaryButton {
+  display: inline-block;
+  background: #f8f9fa;
+  color: #5f3dc4;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: 1px solid #5f3dc4;
+  transition: background 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background: #e9ecef;
 }
 
 .footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0;
+  color: #6c757d;
+  font-size: 0.9rem;
 }
 
-.footer a {
+/* Course page styles */
+.backLink {
+  align-self: flex-start;
+  margin-bottom: 2rem;
+}
+
+.backLink a {
+  color: #5f3dc4;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 8px;
+  transition: color 0.3s ease;
 }
 
-.footer img {
-  flex-shrink: 0;
+.backLink a:hover {
+  color: #4c2f9d;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+.courseHeader {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
+.courseHeader .languageIcon {
+  width: 80px;
+  height: 80px;
+  font-size: 3rem;
+  margin: 0 auto 1.5rem;
+}
 
-  .main {
-    align-items: center;
-  }
+.courseContent {
+  width: 100%;
+  max-width: 1000px;
+}
 
-  .main ol {
-    text-align: center;
-  }
+.section {
+  margin-bottom: 3rem;
+}
 
-  .ctas {
+.section h2 {
+  font-size: 2rem;
+  color: #212529;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.5rem;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #495057;
+}
+
+.moduleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.moduleCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.moduleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.moduleCard h3 {
+  font-size: 1.5rem;
+  color: #212529;
+  margin-bottom: 1rem;
+}
+
+.moduleCard ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.moduleCard li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 1rem;
+  color: #495057;
+}
+
+.moduleCard li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #5f3dc4;
+}
+
+.codeBlock {
+  background: #282c34;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.codeBlock pre {
+  margin: 0;
+}
+
+.codeBlock code {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #abb2bf;
+  background: transparent;
+  padding: 0;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.benefitCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.benefitCard h3 {
+  font-size: 1.3rem;
+  color: #212529;
+  margin-bottom: 0.5rem;
+}
+
+.benefitCard p {
+  font-size: 1rem;
+  color: #495057;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .buttonGroup {
     flex-direction: column;
   }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
+  
+  .cta {
+    padding: 2rem 1rem;
   }
-
-  a.secondary {
-    min-width: auto;
+  
+  .moduleGrid {
+    grid-template-columns: 1fr;
   }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  
+  .benefitsGrid {
+    grid-template-columns: 1fr;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+  
+  .section h2 {
+    font-size: 1.8rem;
   }
 }
