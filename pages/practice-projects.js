@@ -825,7 +825,7 @@ isValidSolution solution (leftCons, rightCons, topCons, bottomCons) =
       for c <- 0..(cols - 1), r <- 0..(rows - 2) do
         a = Enum.at(Enum.at(sol_grid, r), c)
         b = Enum.at(Enum.at(sol_grid, r + 1))
-        a == "X" or b == "X" or a != b
+        a == "X" or a == "X" or a != b
       end
       |> Enum.all?(& &1)
 
