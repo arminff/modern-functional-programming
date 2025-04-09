@@ -107,7 +107,7 @@ instance Monad (Either e) where
                 <code>
                   {`divide :: Int -> Int -> Maybe Int
 divide _ 0 = Nothing
-divide x y = Just (x `div` y)
+divide x y = Just (x \`div\` y)
 
 compute :: Int -> Int -> Int -> Maybe Int
 compute x y z = do
@@ -188,7 +188,7 @@ sum' (!x:xs) = x + sum' xs`}
                   {`-- Avoiding space leaks
 foldl' :: (b -> a -> b) -> b -> [a] -> b
 foldl' f acc [] = acc
-foldl' f acc (x:xs) = let acc' = f acc x in acc' `seq` foldl' f acc' xs`}
+foldl' f acc (x:xs) = let acc' = f acc x in acc' \`seq\` foldl' f acc' xs`}
                 </code>
               </pre>
             </div>

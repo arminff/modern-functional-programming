@@ -130,7 +130,7 @@ fib n = fib (n-1) + fib (n-2)
 
 parallelFib :: Int -> Int -> [Integer]
 parallelFib start end = 
-  map fib [start..end] `using` parList rdeepseq`}
+  map fib [start..end] \`using\` parList rdeepseq`}
                 </code>
               </pre>
             </div>
@@ -156,10 +156,10 @@ number :: Parser Expr
 number = Number . read <$> many1 digit
 
 expr :: Parser Expr
-expr = term `chainl1` addop
+expr = term \`chainl1\` addop
 
 term :: Parser Expr
-term = factor `chainl1` mulop
+term = factor \`chainl1\` mulop
 
 factor :: Parser Expr
 factor = number <|> parens expr
@@ -301,7 +301,7 @@ eval (Div e1 e2) = do
   v2 <- eval e2
   if v2 == 0
     then Left "Division by zero"
-    else return $ v1 `div` v2`}
+    else return $ v1 \`div\` v2`}
                 </code>
               </pre>
             </div>
